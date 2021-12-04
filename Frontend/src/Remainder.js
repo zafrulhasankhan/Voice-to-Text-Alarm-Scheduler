@@ -4,6 +4,7 @@ import { useAuth } from "./contexts/AuthContext";
 import emailjs from 'emailjs-com';
 import Axios from 'axios';
 import Dictaphone from './Dictaphone';
+
 function Remainder(props) {
     console.log("hey ekhane asche");
     const { currentUser, logout } = useAuth();
@@ -13,6 +14,7 @@ function Remainder(props) {
             AlaramSet();
         }, 1000)
 
+    
     }, [])
 
     const AlaramSet = () => {
@@ -45,7 +47,7 @@ function Remainder(props) {
                 var today = new Date()
                 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
-                if (time === "20:19:0") {
+                if (time === "22:29:0") {
                     //sms part
                     // const greenwebsms = new URLSearchParams();
                     // greenwebsms.append('token', '3134fac5e85e1e2c785fb278f58492aa');
@@ -66,7 +68,7 @@ function Remainder(props) {
                             console.log('FAILED...', err);
                         });
                 }
-                else if (time === "20:14:0") {
+                else if (time === "22:30:0") {
                     //sms part
                     // const greenwebsms = new URLSearchParams();
                     // greenwebsms.append('token', '3134fac5e85e1e2c785fb278f58492aa');
@@ -93,7 +95,7 @@ function Remainder(props) {
     }
     return (
         <div>
-<Dictaphone />
+            <Dictaphone />
         </div>
     );
 }

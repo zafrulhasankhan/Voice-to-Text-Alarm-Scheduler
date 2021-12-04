@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Nav, NavDropdown, Navbar,Dropdown } from "react-bootstrap"
+import { Nav, NavDropdown, Navbar, Dropdown } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import './Navbar.css';
@@ -31,17 +31,15 @@ function Topbar() {
                             <Nav.Link className="nav-link" as={Link} to="/">Home</Nav.Link>
 
 
-                            <NavDropdown title="Join or create" caret={false} id="collasible-nav-dropdown">
-                                {/* <NavDropdown.Item  ><Link style={{ textDecoration: 'none', color: 'black' }} to="/join-course">Join Course</Link></NavDropdown.Item>
+                            {/* <NavDropdown title="Join or create" caret={false} id="collasible-nav-dropdown"> */}
+                            {/* <NavDropdown.Item  ><Link style={{ textDecoration: 'none', color: 'black' }} to="/join-course">Join Course</Link></NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item><Link style={{ textDecoration: 'none', color: 'black' }} to="/add-course">Add Course</Link></NavDropdown.Item> */}
-                                {/* <NavDropdown.Item as={Link} to="/me">text here</NavDropdown.Item> */}
-                                <NavDropdown.Item  as={Link} to="/join-course">Join Course</NavDropdown.Item>
+                            {/* <NavDropdown.Item as={Link} to="/me">text here</NavDropdown.Item> */}
+                            {/* <NavDropdown.Item  as={Link} to="/join-course">Join Course</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item as={Link} to="/add-course">Create Course</NavDropdown.Item>
-                            </NavDropdown>
-
-
+                            </NavDropdown> */}
 
                             <Nav.Link className="nav-link" onClick={handleLogout}>Logout</Nav.Link>
 
@@ -61,11 +59,10 @@ function Topbar() {
 
                                 </Nav.Link>
                             )}
-                            <Nav.Link href="#pricing" style={{ padding: '2px' }}>
+                            <Nav.Link href="#pricing" style={{ padding: '2px', }}>
                                 <span style={{ fontSize: "14px", padding: '0px' }}>{currentUser?.displayName}</span>
                                 <br /><span style={{ fontSize: "13px", padding: '0px' }}>{currentUser?.email}</span>
                             </Nav.Link>
-
                         </Nav>
 
                     </Navbar.Collapse>
