@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { AuthProvider } from "./contexts/AuthContext"
 import Remainder from './Remainder';
 import Topbar from './Topbar/Topbar';
+import AddPhone from './AddPhone';
 function App() {
   const [data, setdata] = useState([]);
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/login" component={Signup} />
             <Route path="/voice-text" component={Dictaphone} />
             <Route path="/" exact component={Remainder} />
+            <Route path="/add-phone" exact component={AddPhone} />
 
           </Switch>
  

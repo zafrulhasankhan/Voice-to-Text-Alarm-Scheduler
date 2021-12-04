@@ -37,7 +37,23 @@ router.post("/remainder-info", function (req, res) {
     const remainder_date = req.body.remainder_date;
     console.log(message, remainder_date);
     const sql = "INSERT INTO `remainder-list`(`email`, `phone_No`, `remainder_date`, `message`) VALUES (?,?,?,?) ";
-    con.query(sql, [email, phone_No,remainder_date, message], (error, result) => {
+    con.query(sql, [email, phone_No, remainder_date, message], (error, result) => {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            res.send(result);
+        }
+    })
+})
+
+router.post("/add-phone", function (req, res) {
+
+    const phoneNo = req.body.phoneNo;
+    const email = req.body.email;
+    console.log(phoneNo,email);
+    const sql = "UPDATE `remainder-list` SET `phone_No`=? where email =? ";
+    con.query(sql, [phoneNo,email], (error, result) => {
         if (error) {
             console.log(error);
         }
