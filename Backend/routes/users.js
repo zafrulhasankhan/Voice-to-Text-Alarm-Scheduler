@@ -63,6 +63,22 @@ router.post("/add-phone", function (req, res) {
     })
 })
 
+
+router.get("/check-phone-num/:email", function (req, res) {
+
+    const email = req.params.email;
+    console.log(email);
+    const sql = "select `phone_No` from user where email =?";
+    con.query(sql, [email], (error, result) => {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            res.send(result);
+        }
+    })
+})
+
 router.get("/remainder-list/:date1/:date2", function (req, res) {
 
     const date1 = req.params.date1;

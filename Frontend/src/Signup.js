@@ -1,6 +1,6 @@
 import React from "react"
-import {  Card,  Container } from "react-bootstrap"
-import {  useHistory } from "react-router-dom"
+import { Card, Container } from "react-bootstrap"
+import { useHistory } from "react-router-dom"
 import { facebookProvider, githubProvider, googleProvider } from './config/authMethods';
 import socialMediaAuth from './service/auth';
 import axios from './config/axios';
@@ -22,12 +22,22 @@ export default function Signup() {
       profile_photo: res?.providerData[0]?.photoURL
     }).then((result) => {
       console.log("result" + result.data.length);
-      if (result.data.length) {
-        history.push("/");
-      }
-      else {
-        history.push("/signup")
-      }
+      // if (result.data.length) {
+        axios.get(`/check-phone-num/${res?.providerData[0]?.email}`)
+          .then((result2) => {
+            console.log(result2.data);
+            if (result2.data.phone_No) {
+              history.push("/");
+            }
+            else{
+              history.push("/add-phone");
+            }
+          })
+        
+      // }
+      // else {
+      //   history.push("/signup")
+      // }
 
     }).catch((err) => console.log(err))
 

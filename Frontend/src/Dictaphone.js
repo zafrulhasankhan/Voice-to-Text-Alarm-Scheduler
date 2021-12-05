@@ -68,19 +68,30 @@ function App() {
     }
 
 
-    axios.post('/remainder-info', {
-      phone_No: "01612457547",
-      email: currentUser.email,
-      message: note,
-      remainder_date: matches
+    axios.get(`/check-phone-num/${currentUser.email}`)
+      .then((result2) => {
+        if (result2.data.length) {
 
-    }).then((result) => {
+          console.log(result2.data);
+          axios.post('/remainder-info', {
+            phone_No: "01612457547",
+            email: currentUser.email,
+            message: note,
+            remainder_date: matches
 
-      if (result.status = "200") {
-        setMsg("Succesfully Alarm Set")
-      }
-    })
+          }).then((result) => {
+
+            if (result.status = "200") {
+              setMsg("Succesfully Alarm Set")
+            }
+          })
+        }
+      })
+
+
     setNote('')
+
+
   }
 
   return (

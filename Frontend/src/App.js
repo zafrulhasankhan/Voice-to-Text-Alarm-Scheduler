@@ -10,6 +10,7 @@ import { AuthProvider } from "./contexts/AuthContext"
 import Remainder from './Remainder';
 import Topbar from './Topbar/Topbar';
 import AddPhone from './AddPhone';
+import PrivateRoute from './PrivateRoute';
 function App() {
   const [data, setdata] = useState([]);
 
@@ -33,12 +34,13 @@ function App() {
       <h1>Email:{data.email}</h1>
       <img src={data.photoURL} /> */}
       <AuthProvider>
-       
+
           <Switch>
             <Route path="/login" component={Signup} />
-            <Route path="/voice-text" component={Dictaphone} />
-            <Route path="/" exact component={Remainder} />
-            <Route path="/add-phone" exact component={AddPhone} />
+            <PrivateRoute path="/voice-text" component={Dictaphone} />
+            <PrivateRoute path="/" exact component={Remainder} />
+            <PrivateRoute path="/add-phone" exact component={AddPhone} />
+            
 
           </Switch>
  
